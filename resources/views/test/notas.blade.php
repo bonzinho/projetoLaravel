@@ -1,5 +1,9 @@
 @extends('template')
 
+@section('title')
+Notas
+@endsection 
+
 @section('content')
 <h1>Anotações</h1>
     <ul>
