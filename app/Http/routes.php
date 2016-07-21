@@ -15,5 +15,5 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('ola/{nome}', 'TestController@index'); // executa o TestController no metodo @index | {variavel} para usar tipo get
-Route::get('notas', 'TestController@notas'); 
+Route::get('inicio/{nome}', 'TestController@index'); // executa o TestController no metodo @index | {variavel} para usar tipo get
+Route::get('blog', 'TestController@blog');  // vai para o controlador testeController e medoto blog
