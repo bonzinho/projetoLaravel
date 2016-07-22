@@ -156,6 +156,8 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
 
+        \Illuminate\Html\HtmlServiceProvider::class,   // registo do servico provider do plugin illuminate, depois de criar a dependencia no composer
+
     ],
 
     /*
@@ -201,6 +203,8 @@ return [
         'URL' => Illuminate\Support\Facades\URL::class,
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
+        'Form' => \Illuminate\Html\FormFacade::class,  // configuração do illuminate/html
+        'Html' => \Illuminate\Html\HtmlFacade::class,    // configuração do illuminate/html
 
     ],
 

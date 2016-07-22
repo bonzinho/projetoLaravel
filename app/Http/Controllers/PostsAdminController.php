@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+
 use App\Post;
 use App\Http\Requests;
+use Illuminate\Http\Request; // usado para o Request do store por exemplo
 
 class PostsAdminController extends Controller
 {
@@ -21,5 +22,19 @@ class PostsAdminController extends Controller
 
     	return view('admin.posts.index', compact('posts'));
 
+    }
+
+    public function create(){
+    	return view('admin.posts.create');
+    }
+
+    public function store(PostRequest $request){
+    	
+    	//dd($request->all());  // o dd (die and dump) faz com que mate a aplicação e mostre os resultados
+
+    	//dd($this->post->create($request->all())); // criar post
+    	$this->post->create($request->all()); // criar post
+
+    	return redirect()->route('admin.posts.index'); //redireciona para o route admin.posts.index
     }
 }
