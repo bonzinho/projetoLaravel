@@ -11,9 +11,5 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
-Route::get('inicio/{nome}', 'TestController@index'); // executa o TestController no metodo @index | {variavel} para usar tipo get
-Route::get('blog', 'TestController@blog');  // vai para o controlador testeController e medoto blog
+Route::get('/', 'PostsController@index');  // paginas incial para para o cPostController metodo index
+Route::get('admin', 'PostsAdminController@index');
