@@ -13,6 +13,18 @@
 
 Route::get('/', 'PostsController@index');  // paginas incial para para o cPostController metodo index
 
-Route::get('admin/posts', ['as' => 'admin.posts.index', 'uses'=> 'PostsAdminController@index']); // admin/posts
-Route::get('admin/posts/create', ['as' => 'admin.posts.create', 'uses'=>'PostsAdminController@create']);  //admin/posts/create
-Route::post('admin/posts/store', ['as' => 'admin.posts.store', 'uses'=>'PostsAdminController@store']);  // envio do post para criar um novo post  (admin/posts/store)
+Route::group(['prefix' => 'admin'], function(){
+
+	Route::group(['prefix' => 'posts'], function(){ 
+
+		Route::get('', ['as' => 'admin.posts.index', 'uses'=> 'PostsAdminController@index']); // admin/posts
+		Route::get('create', ['as' => 'admin.posts.create', 'uses'=>'PostsAdminController@create']);  //admin/posts/create
+		Route::post('store', ['as' => 'admin.posts.store', 'uses'=>'PostsAdminController@store']);  // envio do post para criar um novo post  (admin/posts/store)
+		Route::get('edit/{id}', ['as' => 'admin.posts.edit', 'uses'=>'PostsAdminController@edit']);  // envio do post para criar um novo post  (admin/posts/store)
+		Route::put('update/{id}', ['as' => 'admin.posts.update', 'uses'=>'PostsAdminController@update']);  // envio do post para criar um novo post  (admin/posts/store)
+		Route::get('destroy/{id}', ['as' => 'admin.posts.destroy', 'uses'=>'PostsAdminController@destroy']);  // envio do post para criar um novo post  (admin/posts/store)
+
+
+	});
+});
+

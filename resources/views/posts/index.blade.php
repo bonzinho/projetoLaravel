@@ -11,6 +11,7 @@ BLOG
 	<h2>{{$post->title}}</h2>
 	<p>{{$post->content}}</p>
 	<b>Tags:</b><br/>
+
 	<ul>
 		@foreach($post->tags as $tag)
 		<li>{{$tag->name}}</li>
@@ -23,6 +24,7 @@ BLOG
 		<b>Comment: </b> {{$comment->comment}}
 	@endforeach
 	<hr>
+	
 	@endforeach
 	
 @stop 
